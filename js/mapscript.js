@@ -1,8 +1,13 @@
+//using my student id to store the information locally
+//const prefix = "lr4631-";
+//const markerKey = prefix + "markers";
+//let storedMarkers = localStorage.getItem(markerKey);
+
 //setting up date part of form
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth() + 1; //January is 0!
-var yyyy = today.getFullYear();
+let today = new Date();
+let dd = today.getDate();
+let mm = today.getMonth() + 1;
+let yyyy = today.getFullYear();
 if (dd < 10) {
   dd = '0' + dd;
 }
@@ -15,17 +20,38 @@ function setupDate(){
   document.getElementById("day").setAttribute("value", today);
 }
 
-//setting up the datapoint
-let daylist = "";
+//setting up the datapoints
+let pointlist = [];
 
+let currentLoc;
+let map;
+
+//when a form is submitted, create a marker
 function checkInfo(){
   console.log("checkInfo called");
-}
-// Initialize the options for location 
-function initLocs() {
-    const ntid = {lat:43.087637751968124, lng:-77.66824871948182, name: "National Technical Institute for the Deaf"};
-    const com = {lat:43.086478105788494, lng:-77.66916603500717, name: "The Commons"};
-    const wal = {lat: 43.08396582963211, lng: -77.67633695405479, name: "Wallace Library"};
+  //let where = document.getElementById("where").getAttribute("value");
+  let what = document.getElementById("type").value;    
+  let when = document.getElementById("day").getAttribute("value");
+  let expand = document.getElementById("what").value;
+  let rating = document.getElementById("rating").value;
+
+  let string = `<div id="content">` + `<h3>${what}</h3><br>${when}<br>${rating}/5<br>${expand}</div>`;
+
+  let window = new google.maps.InfoWindow({content:string, maxWidth:200});
+  let marker = new google.maps.Marker({
+    position: currentLoc,
+    map
+  });
+
+  marker.addListener("click", () => {
+    window.open({
+      anchor: marker,
+      map,
+      shouldFocus: false,
+    });
+  });
+  pointlist.push(marker);
+  //localStorage.setItem(markerKey, `${pointlist}`);
 }
 
 // Initialize and add the map
@@ -33,16 +59,30 @@ function initMap() {
     // RIT
     const rit = { lat: 43.08396582963211, lng: -77.67633695405479 };
     // The map, centered at Uluru
-    const map = new google.maps.Map(document.getElementById("map"), {
+    map = new google.maps.Map(document.getElementById("map"), {
       zoom: 15,
       center: rit,
+      streetViewControl:false,
+      disableDefaultUI: true, // a way to quickly hide all controls
+      mapTypeControl: false,
     });
     map.addListener('click', function(event) {
       document.getElementById("where").setAttribute("value",`${event.latLng.lat().toFixed(2)},${event.latLng.lng().toFixed(2)}`);
-    })
-    /*// The marker, positioned at Uluru
-    const marker = new google.maps.Marker({
-      position: uluru,
-      map: map,
-    });*/
+      currentLoc = event.latLng;
+    });
+}
+/*
+//get any stored information for the markers
+function getMarkers(){
+  if(storedMarkers !=null){
+    pointlist = JSON.parse(localStorage.markerKey);
+    //Make a marker for each part of the map
+    pointlist.forEach(element => {
+      new google.maps.Marker({
+        position: element.position,
+        map: map,
+      });
+    });
   }
+}
+*/
