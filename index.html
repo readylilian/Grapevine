@@ -9,12 +9,56 @@
     <title>Grapevine</title>
 </head>
 <body onload="setupDate();">
-    <h1>Grapevine</h1>
-    <h2>Helping you stay safe</h2>
-    <nav>Navbar
+    <div id="header">
+        <img src="../Grapevine/media/grapevine.png"></img>
+        <h1>Safety through connections</h1>
+    </div>
+
+    <img id="logo" src="../Grapevine/media/logo_grapevine.png"></img> <br>
+    
+    <div id="panic">
+        <button type="button" onclick="window.location.href='https://weather.com/'">Leave Site</button>
+    </div>
+
+    <nav id="nav">
+        <a href="#map">Map</a> <br>
+        <a href="#log">Report</a> <br>
+        <a href="#resource">Resources</a> <br>
+        <a href="#extra">About</a>
     </nav>
-    <div class="textBlock">Blah blah site info</div>
-    <div id="form">
+
+    <form onsubmit="checkInfo()">
+        <input type="text" id="where" value="Where did it occur?">
+        <select name ="type">
+            <option value="sexualharassment">Sexual Harassment</option>
+            <option value="genderdescrimination">Gender Descrimination</option>
+            <option value="hatespeech">Hate Speech</option>
+            <option value="racialdescrimination">Racial Descrimination</option>
+            <option value="stalking">Stalking</option>
+            <option value="sexualassault">Sexual Assault</option>
+            <option value="assaultbattery">Assault or Battery</option>
+        </select>
+        <br>
+        <label for="date">When?</label>
+        <br>
+        <input type="date" id="day">
+        <br>
+        <label for="what">What Happened?</label>
+        <br>
+        <input type="text" name="what" value="A brief description">
+        <label class="rating-label">
+            <strong>How safe would you feel returning here?</strong>
+            <input
+              class="rating"
+              max="5"
+              oninput="this.style.setProperty('--value', this.value)"
+              step="0.5"
+              type="range"
+              value="1">
+          </label>
+        <input type="submit" value="Submit" onclick="checkInfo();">
+    </form>
+    <div id="log">
         <!--Submission form
         // Form
         // Location -- lat and long
@@ -22,36 +66,75 @@
         // Type of event
         // Description of event (optional)
         // Safety rating-->
-        <form onsubmit="checkInfo()">
-            <input type="text" id="where" value="Where did it occur?">
-            <select name ="type">
-                <option value="sexualharassment">Sexual Harassment</option>
-                <option value="genderdescrimination">Gender Descrimination</option>
-                <option value="hatespeech">Hate Speech</option>
-                <option value="racialdescrimination">Racial Descrimination</option>
-                <option value="stalking">Stalking</option>
-                <option value="sexualassault">Sexual Assault</option>
-                <option value="assaultbattery">Assault or Battery</option>
-            </select>
-            <label for="date">When?</label>
-            <input type="date" id="day">
-            <label for="what">What Happened?</label>
-            <input type="text" name="what" value="A brief description">
-            <label class="rating-label">
-                <strong>How safe would you feel returning here?</strong>
-                <input
-                  class="rating"
-                  max="5"
-                  oninput="this.style.setProperty('--value', this.value)"
-                  step="0.5"
-                  type="range"
-                  value="1">
-              </label>
-            <input type="submit" value="Submit" onclick="checkInfo();">
-        </form>
-        <!--Form blocks go here-->
+        
+        <!--Log blocks go here-->
+        <div class="logtext">
+            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? Nesciunt possimus veritatis illo ad! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore repudiandae at voluptate eveniet nesciunt? Laborum impedit nemo amet facere tenetur aliquid, voluptate perferendis odit repellat ea! Modi, velit non.
+        </div>
+        <div class="logtext">
+            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? Nesciunt possimus veritatis illo ad! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore repudiandae at voluptate eveniet nesciunt? Laborum impedit nemo amet facere tenetur aliquid, voluptate perferendis odit repellat ea! Modi, velit non.
+        </div>
+        <div class="logtext">
+            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? Nesciunt possimus veritatis illo ad! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore repudiandae at voluptate eveniet nesciunt? Laborum impedit nemo amet facere tenetur aliquid, voluptate perferendis odit repellat ea! Modi, velit non.
+        </div>
+        <div class="logtext">
+            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? Nesciunt possimus veritatis illo ad! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore repudiandae at voluptate eveniet nesciunt? Laborum impedit nemo amet facere tenetur aliquid, voluptate perferendis odit repellat ea! Modi, velit non.
+        </div>
+
     </div>
     <div id ="map"></div>
+
+    <div class="resource">
+        <p class="pTitle">Resources</p>
+        <p class="name">Rochester General Hospital - Social Workers</p> 
+        <p>(585) 922-4392 <br>
+        https://www.rochesterregional.org/services/social-work</p> 
+
+        <p class="name">Rochester Police Department</p> 
+        <p>9-1-1 <br>
+        https://www.cityofrochester.gov/article.aspx?id=8589935972 </p> 
+        <p>LGBTQ+ Liaison - (585) 428-6172 </p>
+
+        <p class="name">RIT Campus Safety</p>
+        <p>585-475-3333 <br>
+        https://cm.maxient.com/reportingform.php?RochesterInstofTech&layout_id=3</p>
+
+        <p class="name">RIT Sexual/Gender-Based Harassment Reporting</p>
+        <p>https://cm.maxient.com/reportingform.php?RochesterInstofTech&layout_id=25</p>
+
+        <p class="name">RIT CaPS  (Counseling and Psycholocial Services)</p>
+        <p>585-475-2261 <br>
+        https://www.rit.edu/counseling/overview-caps</p>
+    </div>
+
+    <div class="extra">
+        <p class="pTitle">More information</p>
+        <p>The term sexual assault refers to sexual contact or behavior that occurs without explicit consent of the victim. Some forms of sexual assault include: <br>
+        - Attempted rape <br>
+        - Fondling or unwanted sexual touching <br>
+        - Forcing a victim to perform sexual acts, such as oral sex or penetrating the perpetrator’s body <br>
+        - Penetration of the victim’s body, also known as rape <br>
+
+        None of these behaviors are ok. Nor are the actions of the assulter the victims fault. In high pressure moments here are some general guides to getting out of a situation before or durring it partakes: <br>
+        - Have an exit strategy. Find the nearest doors, windows, or other means of exitting the current area. Be alert <br>
+        - Make a code word. Having a code word to tell surrounding friends  or giving a nonverbal look to a bystander can be your best exit strategy. An example of this can be the phrase “We need to go on more vacations” given with direct eye contact. <br>
+        - Trust your gut. Don’t do anything you feel you don’t want to do. If you need to make a lie to get out of a situation, do it. Getting into a situation that is tough is never your fault. <br>
+
+        Most importantly, after an event like an assult, learning how to take care of yourself is important. Whether that means contacting friends or family for support, or reaching out to local authorities here are some things to do. <br>
+        - Changing housing or schedules. If the event happened in a certain scheduled time frame changing yourobligations of going there again may help with the healing process. <br>
+        - Make use of on-campus resources. Like the student health center for psycholgical and physical health, Campus Police, and supporting staff members like professors or TAs that are there to support you.
+        </p>
+
+        <p class="pTitle">About Grapevine</p>
+        <p>
+            Grapevine came to fruition by two women who were sick of hearing “well that problem doesn’t
+             happen here” when they heard events of sexual harassment and microaggressions happening 
+             everyday in their community. Grapevine takes the initiative to connect victims through 
+             their tragedies and start a conversation about the problem in their community. This application
+              also provides a visual representation of people’s experiences in the community they live in.
+        </p>
+
+    </div>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUm98u9QDvbqUF7Dd9mB9briACArKSoO8&callback=initMap&libraries=visualization&=places&v=weekly"
     async
