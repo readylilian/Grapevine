@@ -25,7 +25,7 @@ let pointlist = [];
 
 let currentLoc;
 let map;
-
+let rating;
 //when a form is submitted, create a marker
 function checkInfo(){
   console.log("checkInfo called");
@@ -33,7 +33,7 @@ function checkInfo(){
   let what = document.getElementById("type").value;    
   let when = document.getElementById("day").getAttribute("value");
   let expand = document.getElementById("what").value;
-  let rating = document.getElementById("rating").value;
+  rating = document.getElementById("rating").value;
 
   let string = `<div id="content">` + `<h3>${what}</h3><br>${when}<br>${rating}/5<br>${expand}</div>`;
 
@@ -51,7 +51,29 @@ function checkInfo(){
     });
   });
   pointlist.push(marker);
+  heatMap();
   //localStorage.setItem(markerKey, `${pointlist}`);
+}
+// Set up heatmap
+function heatMap(){
+  heatmap = new google.maps.visualization.HeatmapLayer({
+    data: getPoints(pointlist),
+    map: map
+    });
+}
+
+//Get pointlist information
+function getPoints(pointlist){
+  let coords = [];
+  for (let i =0; i<pointlist.length; i++){
+    coords.push(
+      {location:
+      new google.maps.LatLng(
+        pointlist[i].position.lat(),
+        pointlist[i].position.lng()
+        ), radius: ((1/rating)+1 * 10)});
+  }
+  return coords;
 }
 
 // Initialize and add the map
@@ -66,6 +88,7 @@ function initMap() {
       disableDefaultUI: true, // a way to quickly hide all controls
       mapTypeControl: false,
     });
+
     map.addListener('click', function(event) {
       document.getElementById("where").setAttribute("value",`${event.latLng.lat().toFixed(2)},${event.latLng.lng().toFixed(2)}`);
       currentLoc = event.latLng;
