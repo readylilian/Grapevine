@@ -8,13 +8,52 @@
     <script src="js/mapscript.js"></script>
     <title>Grapevine</title>
 </head>
-<body>
+<body onload="setupDate();">
     <h1>Grapevine</h1>
     <h2>Helping you stay safe</h2>
+    <nav>Navbar
+    </nav>
     <div class="textBlock">Blah blah site info</div>
+    <div id="form">
+        <!--Submission form
+        // Form
+        // Location -- lat and long
+        // Date
+        // Type of event
+        // Description of event (optional)
+        // Safety rating-->
+        <form onsubmit="checkInfo()">
+            <input type="text" id="where" value="Where did it occur?">
+            <select name ="type">
+                <option value="sexualharassment">Sexual Harassment</option>
+                <option value="genderdescrimination">Gender Descrimination</option>
+                <option value="hatespeech">Hate Speech</option>
+                <option value="racialdescrimination">Racial Descrimination</option>
+                <option value="stalking">Stalking</option>
+                <option value="sexualassault">Sexual Assault</option>
+                <option value="assaultbattery">Assault or Battery</option>
+            </select>
+            <label for="date">When?</label>
+            <input type="date" id="day">
+            <label for="what">What Happened?</label>
+            <input type="text" name="what" value="A brief description">
+            <label class="rating-label">
+                <strong>How safe would you feel returning here?</strong>
+                <input
+                  class="rating"
+                  max="5"
+                  oninput="this.style.setProperty('--value', this.value)"
+                  step="0.5"
+                  type="range"
+                  value="1">
+              </label>
+            <input type="submit" value="Submit" onclick="checkInfo();">
+        </form>
+        <!--Form blocks go here-->
+    </div>
     <div id ="map"></div>
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUm98u9QDvbqUF7Dd9mB9briACArKSoO8&callback=initMap&libraries=&v=weekly"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUm98u9QDvbqUF7Dd9mB9briACArKSoO8&callback=initMap&libraries=visualization&=places&v=weekly"
     async
   ></script>
 </body>
