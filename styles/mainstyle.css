@@ -14,7 +14,7 @@ html{
 }
 @font-face {
   font-family: "Alata";
-  src: url(media/Alata-Regular.ttf) format("truetype");
+  src: url(../media/Alata-Regular.ttf) format("truetype");
 }
 body{
   
