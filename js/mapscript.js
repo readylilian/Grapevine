@@ -1,7 +1,7 @@
 //using my student id to store the information locally
-const prefix = "lr4631-";
-const markerKey = prefix + "markers";
-let storedMarkers = localStorage.getItem(markerKey);
+//const prefix = "lr4631-";
+//const markerKey = prefix + "markers";
+//let storedMarkers = localStorage.getItem(markerKey);
 
 //setting up date part of form
 let today = new Date();
@@ -51,7 +51,7 @@ function checkInfo(){
     });
   });
   pointlist.push(marker);
-  localStorage.setItem(markerKey, `${pointlist}`);
+  //localStorage.setItem(markerKey, `${pointlist}`);
 }
 
 // Initialize and add the map
@@ -70,11 +70,8 @@ function initMap() {
       document.getElementById("where").setAttribute("value",`${event.latLng.lat().toFixed(2)},${event.latLng.lng().toFixed(2)}`);
       currentLoc = event.latLng;
     });
-    if(storedMarkers != null){
-      pointlist = localStorage.getItem(markerKey);
-    }
 }
-
+/*
 //get any stored information for the markers
 function getMarkers(){
   if(storedMarkers !=null){
@@ -88,3 +85,4 @@ function getMarkers(){
     });
   }
 }
+*/
