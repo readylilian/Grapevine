@@ -12,9 +12,12 @@ html{
   height: 100%;
   width: 100%;
 }
+@font-face {
+  font-family: "Alata";
+  src: url(../media/Alata-Regular.ttf) format("truetype");
+}
 body{
-  height: 100%;
-  width: 100%;
+  
   margin: 0;
   display: grid;
   grid-template-areas: 
@@ -32,45 +35,65 @@ body{
 
 #header{
   grid-area: header;
-  padding: 2em;
+  top: 10px;
+}
+#headerimg{
+  width: 20%;
+  height: 20%;
+  top: 15px;
 }
 
-header.h1{
+h1{
   grid-area: header;
   font-family: Alata;
   font-style: normal;
   font-weight: normal;
-  font-size: 100px;
-  line-height: 138px;
+  font-size: 2.5em;
   color: #CE4257;
-  padding: 50px;
+  padding: 0px;
+  margin: 0;
 }
 
-.button{
+button{
   grid-area: panic;
   position: fixed;
-  
-  left: 1484px;
-  top: 30px;
-
-  background-color:#ff9b54;
+  right: 10px;
+  top: 10px;
+  padding: 12px 30px;
+  background:#ff9b54;
   border: none;
   color: #4f000b;
-  padding: 15px 32px;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-radius: .5em;
+}
+
+h2{
+  grid-area: resource;
+  color: #FFFFFF;
+  font-size: 2em;
+  font-family: Alata;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding:0;
 }
 
 form{
   grid-area: form;
+  padding-left: 1.5em;
 }
+
 #log{
   grid-area: log;
   display: flexbox;
   flex-flow: column, nowrap;
   overflow-y: scroll;
+  left: 15px;
+}
+#where{
+  background-color: #CE4257;
 }
 #map {
   grid-area: map;
@@ -81,9 +104,15 @@ form{
 }
 .resource{
   grid-area: resource;
+  font-family: Alata;
+  font-style: normal;
+  font-weight: normal;
 }
 .extra{
   grid-area: text;
+  font-family: Alata;
+  font-style: normal;
+  font-weight: normal;
 }
 
 #logo{
@@ -106,7 +135,7 @@ form{
   line-height: 18px;
   color: #CE4257;
 }
-.a.nav{
+a{
   grid-area: nav;
   font-family: Alata;
   font-style: normal;
@@ -142,7 +171,7 @@ p{
   font-family: Alata;
   font-style: normal;
   font-weight: normal;
-  padding: 15px;
+  padding: 0;
   margin: 0em;
 }
 
@@ -150,6 +179,13 @@ footer{
   grid-area: footer;
   background-color: #CE4257;
   color: #4f000b;
+  margin-top: 20px;
+  width: 100%;
+  height:fit-content;
+  font-family: Alata;
+  font-style: normal;
+  font-weight: normal;
+  padding: 15px;
 }
 /*STAR SLIDER*/
 .rating {
