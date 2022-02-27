@@ -10,11 +10,11 @@
 </head>
 <body onload="setupDate();">
     <div id="header">
-        <img id="headerimg" src="../Grapevine/media/grapevine.png" alt="'Grapevine'" sizes="50%" style="margin: 0;"></img>
+        <img id="headerimg" src="media/grapevine.png" alt="'Grapevine'" sizes="50%" style="margin: 0;"></img>
         <h1>Safety through connections</h1>
     </div>
 
-    <img id="logo" src="../Grapevine/media/logo_grapevine.png"></img> <br>
+    <img id="logo" src="media/logo_grapevine.png"></img> <br>
     
     <div id="panic">
         <button type="button" onclick="window.location.href='https://weather.com/'">Leave Site</button>
@@ -27,7 +27,7 @@
         <a href="#extra">About</a>
     </nav>
 
-    <form onsubmit="checkInfo()">
+    <form>
         <h2>Recent Reports</h2> <br>
         <input type="text" id="where" placeholder="Where did it occur?" value="Where did it occur?">
         <select name ="type">
@@ -55,48 +55,12 @@
               oninput="this.style.setProperty('--value', this.value)"
               step="0.5"
               type="range"
-              value="1">
+              value="1"
+              id="rating">
           </label>
         <input type="submit" value="Submit" onclick="checkInfo();">
     </form>
     <div id="log">
-        <!--Submission form
-        // Form
-        // Location -- lat and long
-        // Date
-        // Type of event
-        // Description of event (optional)
-        // Safety rating-->
-        <form action="#">
-            <label for="where">Where did it occur?</label>
-            <input type="text" id="where" placeholder="Click the map" required="true">
-            <label for="type">What happened?</label>
-            <select id="type" required="true">
-                <option value="Sexual Harassment">Sexual Harassment</option>
-                <option value="Gender Descrimination">Gender Descrimination</option>
-                <option value="Hate Speech">Hate Speech</option>
-                <option value="Racial Descrimination">Racial Descrimination</option>
-                <option value="Stalking">Stalking</option>
-                <option value="Sexual Assault">Sexual Assault</option>
-                <option value="Assault Battery">Assault or Battery</option>
-            </select>
-            <label for="date">When?</label>
-            <input type="date" id="day" required="true">
-            <label for="what">Further Description?</label>
-            <input type="text" id="what" placeholder="A brief description (optional)">
-            <label class="rating-label">
-                How safe would you feel returning here?
-                <input
-                  id="rating"
-                  max="5"
-                  oninput="this.style.setProperty('--value', this.value)"
-                  step="0.5"
-                  type="range"
-                  value="1" 
-                  required="true">
-              </label>
-            <input type="button" value="submit" onclick="checkInfo();"></button>
-        </form>
         <!--Log blocks go here-->
         <div class="logtext">
             TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? Nesciunt possimus veritatis illo ad! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore repudiandae at voluptate eveniet nesciunt? Laborum impedit nemo amet facere tenetur aliquid, voluptate perferendis odit repellat ea! Modi, velit non.
