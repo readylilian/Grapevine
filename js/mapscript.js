@@ -1,9 +1,3 @@
-// Form
-// Location -- lat and long
-// Date
-// Type of event
-// Description of event (optional)
-// Safety rating
 //setting up date part of form
 var today = new Date();
 var dd = today.getDate();
@@ -21,6 +15,8 @@ function setupDate(){
   document.getElementById("day").setAttribute("value", today);
 }
 
+//setting up the datapoint
+let daylist = "";
 
 function checkInfo(){
   console.log("checkInfo called");
