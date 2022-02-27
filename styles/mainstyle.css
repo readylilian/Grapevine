@@ -11,15 +11,16 @@ palette
 html{
   height: 100%;
   width: 100%;
+  font-family: "Alata";
 }
 @font-face {
   font-family: "Alata";
   src: url(../media/Alata-Regular.ttf) format("truetype");
 }
 body{
-  
-  margin: 0;
+  box-sizing: border-box;
   display: grid;
+  margin: 0;
   grid-template-areas: 
   "logo      header    header    panic"
   "nav      map       map       form"
@@ -27,9 +28,9 @@ body{
   "nav      resource  resource  resource"
   "nav      text      text      text"
   "footer    footer    footer    footer";
-  grid-template-rows: 125px 250px 300px auto auto 75px;
-  grid-template-columns: 100px 300px 200px 300px;
-  
+  grid-template-rows: 125px auto 300px auto auto 75px;
+  grid-template-columns: 100px 1fr 1fr 1fr;
+  row-gap:20px;
   background-color: #4f000b;
 }
 
@@ -42,9 +43,11 @@ body{
   height: 20%;
   top: 15px;
 }
-
 h1{
-  grid-area: header;
+  color: #CE4257;
+  font-size: 2em;
+}
+h2{
   font-family: Alata;
   font-style: normal;
   font-weight: normal;
@@ -53,10 +56,19 @@ h1{
   padding: 0px;
   margin: 0;
 }
-
+#Submit{
+  background:#ff9b54;
+  border: none;
+  color: #4f000b;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: .5em;
+  padding: 5px;
+}
 button{
   grid-area: panic;
-  position: fixed;
+  margin-left: 50%;
   right: 10px;
   top: 10px;
   padding: 12px 30px;
@@ -69,7 +81,7 @@ button{
   border-radius: .5em;
 }
 
-h2{
+h3{
   grid-area: resource;
   color: #FFFFFF;
   font-size: 2em;
@@ -79,21 +91,43 @@ h2{
   margin: 0px;
   padding:0;
 }
-
+::-webkit-scrollbar{
+  width: 20px;
+  background: #FFEEEE;
+}
+::-webkit-scrollbar-thumb {
+  background: #f6c4c4;
+}
 form{
   grid-area: form;
   padding-left: 1.5em;
+  height: 100%;
 }
-
+#inputs, .logtext{
+  background-color: #FFFFFF;
+  border-radius: 25px;
+  height: fit-content;
+  text-align: center;
+  padding: 5%;
+}
+.logtext{
+  margin: 5px 0;
+}
+input, input[type=text], select{
+  background-color: #FFEEEE;
+  border: 3px solid #720026;
+  width: auto;
+  color: #4f000b;
+  font-size: 1em;
+  margin: 3px;
+}
 #log{
   grid-area: log;
   display: flexbox;
   flex-flow: column, nowrap;
   overflow-y: scroll;
   left: 15px;
-}
-#where{
-  background-color: #CE4257;
+  padding-left: 1.5em;
 }
 #map {
   grid-area: map;
@@ -101,6 +135,7 @@ form{
   /* The height is 400 pixels */
   width: 100%;
   /* The width is the width of the web page */
+  border: 5px solid #CE4257;
 }
 .resource{
   grid-area: resource;
@@ -116,7 +151,8 @@ form{
 }
 
 #logo{
-  position: fixed;
+  align-self: center;
+  grid-area: logo;
   left: 5px;
   height: 75px;
   width: 70px;
@@ -124,8 +160,7 @@ form{
 }
 #nav{
   grid-area: nav;
-
-  position: fixed;
+  justify-self: center;
   top: 80px;
   left: 10px;
   font-family: Alata;
@@ -145,7 +180,7 @@ a{
   color: #CE4257;
 }
 
-p.pTitle{
+h4{
   grid-area: resource;
   color: #CE4257;
   font-size: 2em;
@@ -153,7 +188,6 @@ p.pTitle{
   font-style: normal;
   font-weight: normal;
   margin: 0px;
-  margin-top: 20px;
 }
 p.name{
   grid-area: resource;
@@ -179,7 +213,6 @@ footer{
   grid-area: footer;
   background-color: #CE4257;
   color: #4f000b;
-  margin-top: 20px;
   width: 100%;
   height:fit-content;
   font-family: Alata;
@@ -189,6 +222,8 @@ footer{
 }
 /*STAR SLIDER*/
 #rating {
+  margin-left: auto;
+  margin-right: auto;
   --dir: right;
   --fill: #ff9b54;
   --fillbg: #ff7f5126;

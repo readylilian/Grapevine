@@ -10,11 +10,12 @@
 </head>
 <body onload="setupDate();">
     <div id="header">
-        <img id="headerimg" src="media/grapevine.png" alt="'Grapevine'" sizes="50%" style="margin: 0;"></img>
-        <h1>Safety through connections</h1>
+        <h1>Grapevine</h1>
+        <!--<img id="headerimg" src="media/grapevine.png" alt="'Grapevine'" sizes="50%" style="margin: 0;"></img>-->
+        <h2>Protection through connection</h2>
     </div>
 
-    <img id="logo" src="media/logo_grapevine.png"></img> <br>
+    <img id="logo" src="media/logo_grapevine.png"></img>
     
     <div id="panic">
         <button type="button" onclick="window.location.href='https://weather.com/'">Leave Site</button>
@@ -28,80 +29,84 @@
     </nav>
 
     <form action="#">
-        <h2>Recent Reports</h2> <br>
-        <input type="text" id="where" placeholder="Where did it occur?">
-        <select id="type">
-            <option value="Sexual Harassment">Sexual Harassment</option>
-            <option value="Gender Descrimination">Gender Descrimination</option>
-            <option value="Hate Speech">Hate Speech</option>
-            <option value="Racial Descrimination">Racial Descrimination</option>
-            <option value="Stalking">Stalking</option>
-            <option value="Sexual Assault">Sexual Assault</option>
-            <option value="Assault or Battery">Assault or Battery</option>
-        </select>
-        <br>
-        <label for="date">When?</label>
-        <br>
-        <input type="date" id="day">
-        <br>
-        <label for="what">What Happened?</label>
-        <br>
-        <input type="text" id="what" placeholder="A brief description">
-        <label class="rating-label">
-            <strong>How safe would you feel returning here?</strong>
-            <input
-              class="rating"
-              max="5"
-              oninput="this.style.setProperty('--value', this.value)"
-              step="0.5"
-              type="range"
-              value="1"
-              id="rating">
-          </label>
-        <input type="button" value="Submit" onclick="checkInfo();">
+        <h3>Recent Reports</h3> <br>
+        <div id="inputs">
+            <input type="text" id="where" placeholder="Where did it occur?"><br>
+            <label for="type">What Happened?</label><br>
+            <select id="type">
+                <option value="Sexual Harassment">Sexual Harassment</option>
+                <option value="Gender Descrimination">Gender Descrimination</option>
+                <option value="Hate Speech">Hate Speech</option>
+                <option value="Racial Descrimination">Racial Descrimination</option>
+                <option value="Stalking">Stalking</option>
+                <option value="Sexual Assault">Sexual Assault</option>
+                <option value="Assault or Battery">Assault or Battery</option>
+            </select>
+            <br>
+            <label for="date">When?</label>
+            <br>
+            <input type="date" id="day">
+            <br>
+            <label for="what">Can you expand?</label>
+            <br>
+            <input type="text" id="what" placeholder="A brief description">
+            <label class="rating-label">
+                <br>
+                <label for="rating">How safe would you feel returning here?</label>
+                <input
+                class="rating"
+                max="5"
+                oninput="this.style.setProperty('--value', this.value)"
+                step="0.5"
+                type="range"
+                value="1"
+                id="rating">
+            </label>
+            <input id="Submit" type="button" value="Submit" onclick="checkInfo();">
+        </div>
     </form>
     <div id="log">
         <!--Log blocks go here-->
         <div class="logtext">
-            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? Nesciunt possimus veritatis illo ad! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore repudiandae at voluptate eveniet nesciunt? Laborum impedit nemo amet facere tenetur aliquid, voluptate perferendis odit repellat ea! Modi, velit non.
+            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam?
         </div>
         <div class="logtext">
-            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? Nesciunt possimus veritatis illo ad! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore repudiandae at voluptate eveniet nesciunt? Laborum impedit nemo amet facere tenetur aliquid, voluptate perferendis odit repellat ea! Modi, velit non.
+            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? 
         </div>
         <div class="logtext">
-            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? Nesciunt possimus veritatis illo ad! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore repudiandae at voluptate eveniet nesciunt? Laborum impedit nemo amet facere tenetur aliquid, voluptate perferendis odit repellat ea! Modi, velit non.
+            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? 
         </div>
         <div class="logtext">
-            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? Nesciunt possimus veritatis illo ad! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore repudiandae at voluptate eveniet nesciunt? Laborum impedit nemo amet facere tenetur aliquid, voluptate perferendis odit repellat ea! Modi, velit non.
+            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? 
         </div>
     </div>
     <div id ="map"></div>
 
     <div class="resource">
-        <p class="pTitle">Resources</p>
+        <h4>Resources</h4>
         <p class="name">Rochester General Hospital - Social Workers</p> 
         <p>(585) 922-4392 <br>
-        https://www.rochesterregional.org/services/social-work</p> 
+        <a href="https://www.rochesterregional.org/services/social-work" target="blank">https://www.rochesterregional.org/services/social-work</a></p> 
 
         <p class="name">Rochester Police Department</p> 
         <p>9-1-1 <br>
-        https://www.cityofrochester.gov/article.aspx?id=8589935972 </p> 
+        <a href="https://www.cityofrochester.gov/article.aspx?id=8589935972" target="blank">https://www.cityofrochester.gov/article.aspx?id=8589935972</a></p> 
         <p>LGBTQ+ Liaison - (585) 428-6172 </p>
 
         <p class="name">RIT Campus Safety</p>
         <p>585-475-3333 <br>
-        https://cm.maxient.com/reportingform.php?RochesterInstofTech&layout_id=3</p>
+        <a href="https://cm.maxient.com/reportingform.php?RochesterInstofTech&layout_id=3" target="blank">https://cm.maxient.com/reportingform.php?RochesterInstofTech&layout_id=3</a></p>
 
         <p class="name">RIT Sexual/Gender-Based Harassment Reporting</p>
-        <p>https://cm.maxient.com/reportingform.php?RochesterInstofTech&layout_id=25</p>
+        <p><a href="https://cm.maxient.com/reportingform.php?RochesterInstofTech&layout_id=25" target="blank">https://cm.maxient.com/reportingform.php?RochesterInstofTech&layout_id=25</a></p>
 
         <p class="name">RIT CaPS  (Counseling and Psycholocial Services)</p>
         <p>585-475-2261 <br>
-        https://www.rit.edu/counseling/overview-caps</p>
+        <a href="https://www.rit.edu/counseling/overview-caps" target="blank">https://www.rit.edu/counseling/overview-caps</a></p>
     </div>
 
     <div class="extra">
-        <p class="pTitle">More information</p>
+        <h4>More information</h4>
         <p>The term sexual assault refers to sexual contact or behavior that occurs without explicit consent of the victim. Some forms of sexual assault include: <br>
         - Attempted rape <br>
         - Fondling or unwanted sexual touching <br>
