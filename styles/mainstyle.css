@@ -20,6 +20,59 @@ palette options
 
 
 */
+/*BODY SET UP*/
+html{
+  height: 100%;
+  width: 100%;
+}
+body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-areas: 
+  "info      header    header    panic"
+  "info      map       map       form"
+  "info      map       map       log"
+  "info      resource  resource  resource"
+  "info      text      text      text"
+  "footer    footer    footer    footer";
+  grid-template-rows: 125px 250px 300px auto auto 75px;
+  grid-template-columns: 100px 300px 200px 300px;
+  
+}
+#header{
+  grid-area: header;
+}
+form{
+  grid-area: form;
+}
+#log{
+  grid-area: log;
+  display: flexbox;
+  flex-flow: column, nowrap;
+  overflow-y: scroll;
+}
+#map {
+  grid-area: map;
+  height: 100%;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+.resource{
+  grid-area: resource;
+}
+.extra{
+  grid-area: text;
+}
+#info{
+  grid-area: info;
+}
+footer{
+  grid-area: footer;
+}
+/*STAR SLIDER*/
 .rating {
   --dir: right;
   --fill: #ff9b54;
@@ -91,9 +144,3 @@ palette options
   box-shadow: var(--w) 0 0 var(--w) var(--fill);
 }
 */
-#map {
-    height: 400px;
-    /* The height is 400 pixels */
-    width: 60%;
-    /* The width is the width of the web page */
-  }

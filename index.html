@@ -9,12 +9,44 @@
     <title>Grapevine</title>
 </head>
 <body onload="setupDate();">
-    <h1>Grapevine</h1>
-    <h2>Helping you stay safe</h2>
-    <nav>Navbar
+    <div id="header">
+        <h1>Grapevine</h1>
+        <h2>Helping you stay safe</h2>
+    </div>
+    <nav id="info">Navbar
     </nav>
-    <div class="textBlock">Blah blah site info</div>
-    <div id="form">
+    <form onsubmit="checkInfo()">
+        <input type="text" id="where" value="Where did it occur?">
+        <select name ="type">
+            <option value="sexualharassment">Sexual Harassment</option>
+            <option value="genderdescrimination">Gender Descrimination</option>
+            <option value="hatespeech">Hate Speech</option>
+            <option value="racialdescrimination">Racial Descrimination</option>
+            <option value="stalking">Stalking</option>
+            <option value="sexualassault">Sexual Assault</option>
+            <option value="assaultbattery">Assault or Battery</option>
+        </select>
+        <br>
+        <label for="date">When?</label>
+        <br>
+        <input type="date" id="day">
+        <br>
+        <label for="what">What Happened?</label>
+        <br>
+        <input type="text" name="what" value="A brief description">
+        <label class="rating-label">
+            <strong>How safe would you feel returning here?</strong>
+            <input
+              class="rating"
+              max="5"
+              oninput="this.style.setProperty('--value', this.value)"
+              step="0.5"
+              type="range"
+              value="1">
+          </label>
+        <input type="submit" value="Submit" onclick="checkInfo();">
+    </form>
+    <div id="log">
         <!--Submission form
         // Form
         // Location -- lat and long
@@ -22,36 +54,25 @@
         // Type of event
         // Description of event (optional)
         // Safety rating-->
-        <form onsubmit="checkInfo()">
-            <input type="text" id="where" value="Where did it occur?">
-            <select name ="type">
-                <option value="sexualharassment">Sexual Harassment</option>
-                <option value="genderdescrimination">Gender Descrimination</option>
-                <option value="hatespeech">Hate Speech</option>
-                <option value="racialdescrimination">Racial Descrimination</option>
-                <option value="stalking">Stalking</option>
-                <option value="sexualassault">Sexual Assault</option>
-                <option value="assaultbattery">Assault or Battery</option>
-            </select>
-            <label for="date">When?</label>
-            <input type="date" id="day">
-            <label for="what">What Happened?</label>
-            <input type="text" name="what" value="A brief description">
-            <label class="rating-label">
-                <strong>How safe would you feel returning here?</strong>
-                <input
-                  class="rating"
-                  max="5"
-                  oninput="this.style.setProperty('--value', this.value)"
-                  step="0.5"
-                  type="range"
-                  value="1">
-              </label>
-            <input type="submit" value="Submit" onclick="checkInfo();">
-        </form>
-        <!--Form blocks go here-->
+        
+        <!--Log blocks go here-->
+        <div class="logtext">
+            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? Nesciunt possimus veritatis illo ad! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore repudiandae at voluptate eveniet nesciunt? Laborum impedit nemo amet facere tenetur aliquid, voluptate perferendis odit repellat ea! Modi, velit non.
+        </div>
+        <div class="logtext">
+            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? Nesciunt possimus veritatis illo ad! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore repudiandae at voluptate eveniet nesciunt? Laborum impedit nemo amet facere tenetur aliquid, voluptate perferendis odit repellat ea! Modi, velit non.
+        </div>
+        <div class="logtext">
+            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? Nesciunt possimus veritatis illo ad! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore repudiandae at voluptate eveniet nesciunt? Laborum impedit nemo amet facere tenetur aliquid, voluptate perferendis odit repellat ea! Modi, velit non.
+        </div>
+        <div class="logtext">
+            TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laborum accusantium exercitationem, quos excepturi tempora perferendis tempore aliquid totam quam doloremque molestias error laudantium veniam? Nesciunt possimus veritatis illo ad! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore repudiandae at voluptate eveniet nesciunt? Laborum impedit nemo amet facere tenetur aliquid, voluptate perferendis odit repellat ea! Modi, velit non.
+        </div>
+
     </div>
     <div id ="map"></div>
+    <div class="resource">Blah blah site resource</div>
+    <div class="extra">Blah blah extra stuff</div>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUm98u9QDvbqUF7Dd9mB9briACArKSoO8&callback=initMap&libraries=visualization&=places&v=weekly"
     async
