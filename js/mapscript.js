@@ -71,7 +71,7 @@ function getPoints(pointlist){
       new google.maps.LatLng(
         pointlist[i].position.lat(),
         pointlist[i].position.lng()
-        ), radius: ((1/rating)+1 * 10)});
+        ), radius: (((1/rating)+1) * 10)});
   }
   return coords;
 }
